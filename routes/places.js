@@ -2,10 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 var DiscoveryV1 = require('watson-developer-cloud/discovery/v1');
-var request = require('request');
 var rp = require('request-promise');
 var _ = require('underscore');
 var Promise = require("bluebird");
+
+// var request = require('request');
+var request = Promise.promisifyAll(require("request"), {multiArgs: true});
 
 
 
@@ -35,7 +37,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {  
-    var redirectUrl = '/places/' + req.body.inputName
+    var redirectUrl = '/places/' + req.body.inputName;
     console.log(redirectUrl);
     res.redirect(redirectUrl);
 });
@@ -50,13 +52,38 @@ router.get('/:name', function(req, res, next) {
     }
 }
 
-rp(bingOptions).then(function(data) {
-    var info = JSON.parse(data);
+  var bingImageOptions = {
+    url: 'https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=' + req.params.name + '&count=10&offset=0&mkt=en-us&safeSearch=Moderate',
+    headers: {
+        'Ocp-Apim-Subscription-Key': process.env.BING_KEY
+    }
+}
+
+// rp(bingOptions).then(function(data) {
+//     var info = JSON.parse(data);
+//     _.extend(place, {news: info});
+// }).then(function() {
+//     res.render('places', place);
+// })
+
+request.getAsync(bingOptions).spread(function(response, body) {
+    var info = JSON.parse(body);
     _.extend(place, {news: info});
-}).then(function() {
+    return request.getAsync(bingImageOptions);
+}).spread(function(response, body) {
+    var info = JSON.parse(body);
+    console.log(info.value)
+    _.extend(place, {images: info});
     console.log(place);
     res.render('places', place);
-})
+
+}).catch(function(err) {
+    // error here
+    console.log(err);
+
 });
+});
+
+
 
 module.exports = router;

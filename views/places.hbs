@@ -24,38 +24,8 @@
 <div class="container-fluid" id="screenshots">
     <div class="container">
         <h3>Images<button type="button" class="btn btn-primary">Add</button></h3>
-        <div class="card-deck">
-            <div class="card">
-                <img style="height: 280px; width: 100%; display: block;" src="http://stanford.edu/about/images/intro_about.jpg">
-            </div>
-            <div class="card">
-                <img style="height: 280px; width: 100%; display: block;" src="https://vptl.stanford.edu/sites/default/files/default_images/stanford_from_above.jpg">
-            </div>
-            <div class="card">
-                <img style="height: 280px; width: 100%; display: block;" src="imgs/rainbow-background.jpg">
-            </div>
-        </div>
-        <div class="card-deck">
-            <div class="card">
-                <img style="height: 280px; width: 100%; display: block;" src="imgs/rainbow-background.jpg">
-            </div>
-            <div class="card">
-                <img style="height: 280px; width: 100%; display: block;" src="imgs/rainbow-background.jpg">
-            </div>
-            <div class="card">
-                <img style="height: 280px; width: 100%; display: block;" src="imgs/rainbow-background.jpg">
-            </div>
-        </div>
-        <div class="card-deck">
-            <div class="card">
-                <img class="img-fluid" src="imgs/rainbow-background.jpg">
-            </div>
-            <div class="card">
-                <img class="img-fluid" src="imgs/rainbow-background.jpg">
-            </div>
-            <div class="card">
-                <img class="img-fluid" src="imgs/rainbow-background.jpg">
-            </div>
-        </div>
+        {{#each images.value}}
+          <img src="{{thumbnailUrl}}" alt="">
+        {{/each}}
     </div>
 </div>
