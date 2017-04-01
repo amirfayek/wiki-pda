@@ -1,5 +1,60 @@
-<h1>Places</h1>
-<h2>Welcome to {{city}}</h2>
-<h3>Tweets</h3>
-<h3>Newspapers</h3>
-<h3>Images</h3>
+<div class="container-fluid">
+    <div class="container">
+        <h1>Places</h1>
+        <h2>Welcome to {{name}}</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <h3>Tweets</h3>
+        <p>Woah! Stanfrod is awesome!</p>
+        <p>Stanford is HUGE!</p>
+        <p>PDA Hackathon rocks!</p>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <h3>Newspapers</h3>
+        {{#each news.value}}
+          <p><a href="{{url}}">{{name}}</a><small>  {{datePublished}}</small></p>
+        {{/each}}
+    </div>
+</div>
+<div class="container-fluid" id="screenshots">
+    <div class="container">
+        <h3>Images</h3>
+        <div class="card-deck">
+            <div class="card">
+                <img style="height: 280px; width: 100%; display: block;" src="http://stanford.edu/about/images/intro_about.jpg">
+            </div>
+            <div class="card">
+                <img style="height: 280px; width: 100%; display: block;" src="https://vptl.stanford.edu/sites/default/files/default_images/stanford_from_above.jpg">
+            </div>
+            <div class="card">
+                <img style="height: 280px; width: 100%; display: block;" src="imgs/rainbow-background.jpg">
+            </div>
+        </div>
+        <div class="card-deck">
+            <div class="card">
+                <img style="height: 280px; width: 100%; display: block;" src="imgs/rainbow-background.jpg">
+            </div>
+            <div class="card">
+                <img style="height: 280px; width: 100%; display: block;" src="imgs/rainbow-background.jpg">
+            </div>
+            <div class="card">
+                <img style="height: 280px; width: 100%; display: block;" src="imgs/rainbow-background.jpg">
+            </div>
+        </div>
+        <div class="card-deck">
+            <div class="card">
+                <img class="img-fluid" src="imgs/rainbow-background.jpg">
+            </div>
+            <div class="card">
+                <img class="img-fluid" src="imgs/rainbow-background.jpg">
+            </div>
+            <div class="card">
+                <img class="img-fluid" src="imgs/rainbow-background.jpg">
+            </div>
+        </div>
+    </div>
+</div>
