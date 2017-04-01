@@ -5,6 +5,8 @@ var DiscoveryV1 = require('watson-developer-cloud/discovery/v1');
 var request = require('request');
 var rp = require('request-promise');
 var _ = require('underscore');
+var Promise = require("bluebird");
+
 
 
 /* GET home page. */
