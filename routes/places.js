@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var qs = require("querystring");
 var _ = require('underscore');
 var Promise = require("bluebird");
 
@@ -26,14 +27,14 @@ router.get('/:name', function(req, res, next) {
     };
 
     var bingNewsOptions = {
-        url: 'https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=' + req.params.name + '&count=10&offset=0&mkt=en-us&safeSearch=Moderate',
+        url: 'https://api.cognitive.microsoft.com/bing/v5.0/news/search?' + qs.stringify({q: req.params.name, count: 10, offset: 0, mkt: 'en-us', safeSearch: 'Moderate'}),
         headers: {
             'Ocp-Apim-Subscription-Key': process.env.BING_KEY
         }
     };
 
     var bingImageOptions = {
-        url: 'https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=' + req.params.name + '&count=10&offset=0&mkt=en-us&safeSearch=Moderate',
+        url: 'https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=' + qs.stringify({q: req.params.name, count: 10, offset: 0, mkt: 'en-us', safeSearch: 'Moderate'}),
         headers: {
             'Ocp-Apim-Subscription-Key': process.env.BING_KEY
         }
