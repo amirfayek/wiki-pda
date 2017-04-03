@@ -5,16 +5,16 @@
 </div>
 <div class="container-fluid">
     <div class="container">
-        <h3>Tweets</h3>
+        <h3>Tweets  <button type="button" class="btn btn-primary">Upload Tweets</button></h3>
         <p>Woah! {{name}} is awesome!</p>
-        <p>{{name}} is HUGE!</p>
+        <p>{{name}} is YUGE!</p>
         <p>PDA Hackathon rocks!</p>
     </div>
 </div>
 <div class="container-fluid">
     <div class="container">
     <div class="row"></div>
-        <h3>Newspapers<button type="button" class="btn btn-primary">Add</button></h3>
+        <h3>Newspapers  <button type="button" class="btn btn-primary">Add</button></h3>
         
         {{#each news.value}}
           <p><a href="{{url}}">{{name}}</a><small>  {{datePublished}}</small></p>
@@ -23,9 +23,22 @@
 </div>
 <div class="container-fluid" id="screenshots">
     <div class="container">
-        <h3>Images<button type="button" class="btn btn-primary">Add</button></h3>
+        <h3>Images  <button type="button" class="btn btn-primary">Add</button></h3>
         {{#each images.value}}
           <img src="{{thumbnailUrl}}" alt="">
         {{/each}}
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <h3>Stories  <button type="button" class="btn btn-primary">Add</button></h3>
+        <p>My grandpa grew up here and used to tell me stories about a hidden tunnel system him and his friends used to travel. <small>Added by amir321</small></p>
+        <p>When I was growing up here, the neighborhood looked much differenct. Since then, a lot of big corporations have been coming in and making things much more expensive. I remember an old mom n pop place called Fattys that had the best food. Whole town used to gather there. <small>Added by hellokitty</small></p>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <h3>Emails  <button type="button" class="btn btn-primary">Add</button></h3>
+        <p>Can't wait to go to {{name}} next week!</p>
     </div>
 </div>

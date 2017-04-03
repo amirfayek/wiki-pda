@@ -11,6 +11,32 @@ h1 {
     margin-bottom: 40px;
 }
 
+h3 {
+    margin-top: 25px;
+}
+
 #place-home > h1 {
     margin-top: 90px;
+}
+
+.vertical-center {
+  height:100%;
+  width:100%;
+  text-align: center;  /* align the inline(-block) elements horizontally */
+  /*font: 0/0 a;          remove the gap between inline(-block) elements */
+}
+
+.vertical-center:before {    /* create a full-height inline block pseudo=element */
+  content: " ";
+  display: inline-block;
+  vertical-align: middle;    /* vertical alignment of the inline element */
+  height: 100%;
+}
+
+#home {
+    /*background: url('/images/stanford.jpg') no-repeat   center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
